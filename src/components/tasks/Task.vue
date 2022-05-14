@@ -17,12 +17,13 @@
                 </v-list-item-title>
             </v-list-item-content>
             <v-list-item-action>
-                <v-btn
+                <!-- <v-btn
                     icon
                     @click.stop="handleDelTask(task.id)"
                 >
                     <v-icon color="red lighten-3">mdi-trash-can</v-icon>
-                </v-btn>
+                </v-btn> -->
+                <Menu />
             </v-list-item-action>
         </template>
     </v-list-item>
@@ -31,9 +32,13 @@
 </template>
 
 <script>
+import Menu from './Menu.vue'
+
 export default {
     name: 'Task',
-    components: {},
+    components: {
+        Menu
+    },
     props: ['task'],
     methods: {
         handleDelTask (id) {

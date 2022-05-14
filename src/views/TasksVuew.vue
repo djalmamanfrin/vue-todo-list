@@ -24,7 +24,7 @@
           v-for="task, index in $store.state.tasks"
           :key="index"
         >
-          <task :task="task"/>
+          <Task :task="task"/>
         </div>
       </v-list-item-group>
     </v-list>
