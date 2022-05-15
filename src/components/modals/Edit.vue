@@ -54,7 +54,7 @@ export default {
   },
   methods: {
     handleEdit () {
-      this.$store.commit('editTask', {title: this.title, id: this.task.id})
+      this.$store.dispatch('editTask', {title: this.title, id: this.task.id})
       this.$emit('close')
     }
   }

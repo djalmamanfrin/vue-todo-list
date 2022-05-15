@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     handleDelete () {
-      this.$store.commit('deleteTask', this.task.id)
+      this.$store.dispatch('deleteTask', this.task.id)
       this.$emit('close')
     }
   }

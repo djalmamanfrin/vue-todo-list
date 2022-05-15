@@ -12,41 +12,29 @@
         @keyup.enter="handleAddTask"
       ></v-text-field>
     </v-col>
-    <v-list
-      flat
-      subheader
-    >
-      <v-list-item-group
-        multiple
-        active-class=""
-      >
-        <div
-          v-for="task, index in $store.state.tasks"
-          :key="index"
-        >
-          <task :task="task" />
-        </div>
-      </v-list-item-group>
-    </v-list>
+    <list />
   </div>
 </template>
 
 <script>
-  import Task from '../components/tasks/Task.vue'
+  import List from '../components/tasks/List.vue'
 
   export default {
     name: 'Tasks',
     components: {
-      Task
+      List
     },
     data() {
       return {
         inputTask: null
       }
     },
+    created () {
+      this.$store.commit('getTasks')
+    },
     methods: {
       handleAddTask () {
-        this.$store.commit('addTask', this.inputTask)
+        this.$store.dispatch('addTask', this.inputTask)
         this.inputTask = null
       }
     }
