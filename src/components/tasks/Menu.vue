@@ -14,36 +14,54 @@
         <v-list-item
           v-for="(item, index) in items"
           :key="index"
-          @click="item.click"
+          @click="item.click()"
         >
             <v-icon left> {{ item.icon }} </v-icon>
             <v-list-item-title>{{ item.title }}</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-menu>
+    <modal-edit
+        v-if="items[0].modal"
+        @close="items[0].modal = false"
+        :task="task"
+    />
+    <modal-delete
+        v-if="items[1].modal"
+        @close="items[1].modal = false"
+        :task="task"
+    />
   </div>
 </template>
 
 <script>
+  import ModalEdit from '../modals/Edit.vue'
+  import ModalDelete from '../modals/Delete.vue'
+
 export default {
-    data: () => ({
-        items: [
-            {
-                icon: 'mdi-pencil',
-                title: 'Editar',
-                click () {
-                    console.log('editar')
-                }
-            },
-            {
-                icon: 'mdi-trash-can',
-                title: 'Excluir',
-                click () {
-                    console.log('excluir')
-                }
-            },
-        ]
-    })
+  components: { ModalEdit, ModalDelete},
+  props: ['task'],
+  data: () => ({
+    items: [
+        {
+          icon: 'mdi-pencil',
+          title: 'Editar',
+          modal: false,
+          click () {
+            this.modal = true
+          }
+        },
+        {
+          icon: 'mdi-trash-can',
+          title: 'Excluir',
+          modal: false,
+          click () {
+            this.modal = true
+          }
+        },
+    ]
+  }),
+  methods: {}
 }
 </script>
 

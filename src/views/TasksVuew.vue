@@ -24,7 +24,7 @@
           v-for="task, index in $store.state.tasks"
           :key="index"
         >
-          <Task :task="task"/>
+          <task :task="task" />
         </div>
       </v-list-item-group>
     </v-list>
@@ -33,6 +33,7 @@
 
 <script>
   import Task from '../components/tasks/Task.vue'
+
   export default {
     name: 'Tasks',
     components: {

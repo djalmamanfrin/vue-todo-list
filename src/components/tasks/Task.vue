@@ -19,11 +19,13 @@
             <v-list-item-action>
                 <!-- <v-btn
                     icon
-                    @click.stop="handleDelTask(task.id)"
+                    @click.stop="handleDeleteTask(task.id)"
                 >
                     <v-icon color="red lighten-3">mdi-trash-can</v-icon>
                 </v-btn> -->
-                <Menu />
+                <Menu
+                    :task="task"
+                />
             </v-list-item-action>
         </template>
     </v-list-item>
@@ -41,8 +43,8 @@ export default {
     },
     props: ['task'],
     methods: {
-        handleDelTask (id) {
-            this.$store.commit('delTask', id)
+        handleDeleteTask (id) {
+            this.$store.commit('deleteTask', id)
         }
     }
 }
