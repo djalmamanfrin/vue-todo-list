@@ -4,17 +4,31 @@
       v-model="drawer"
       app
     >
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title class="text-h6">
-            Vue.js
-          </v-list-item-title>
-          <v-list-item-subtitle>
-            Lista de Tarefas
-          </v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
-
+      <v-img
+        src="https://picsum.photos/1920/1080?random"
+        gradient="to top right, rgba(19,84,122,.5), rgba(128,108,199,.8)"
+        dark
+        class="pt-5 text-center"
+      >
+        <v-avatar
+          size="100"
+        >
+          <img
+            src="https://avatars.githubusercontent.com/u/18665685?v=4"
+            alt="Djalma Manfrin"
+          >
+        </v-avatar>
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title class="text-h6">
+              Vue.js
+            </v-list-item-title>
+            <v-list-item-subtitle>
+              Lista de Tarefas
+            </v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+      </v-img>
       <v-divider></v-divider>
 
       <v-list
@@ -37,12 +51,6 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-
-    <!-- <v-app-bar app>
-      <v-app-bar-nav-icon ></v-app-bar-nav-icon>
-
-      <v-toolbar-title>Application</v-toolbar-title>
-    </v-app-bar> -->
     <v-app-bar
       app
       prominent
@@ -85,7 +93,7 @@
 <script>
   export default {
     data: () => ({
-      drawer: null,
+      drawer: true,
       items: [
         { title: 'Tarefas', icon: 'mdi-view-dashboard', to: '/' },
         { title: 'Sobre', icon: 'mdi-help-box', to: '/about' },
