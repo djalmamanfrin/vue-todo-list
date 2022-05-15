@@ -5,6 +5,7 @@
       app
     >
       <v-img
+        height="185"
         src="https://picsum.photos/1920/1080?random"
         gradient="to top right, rgba(19,84,122,.5), rgba(128,108,199,.8)"
         dark
@@ -54,6 +55,7 @@
     <v-app-bar
       app
       prominent
+      height="185"
       color="#fcb69f"
       dark
       src="https://picsum.photos/1920/1080?random"
@@ -67,21 +69,9 @@
 
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-app-bar-title>Title</v-app-bar-title>
-
-      <v-spacer></v-spacer>
-
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
+      <center class="mt-16">
+        <new-task-input />
+      </center>
     </v-app-bar>
 
     <v-main>
@@ -91,9 +81,12 @@
 </template>
 
 <script>
+  import NewTaskInput from './components/NewTaskInput.vue'
   export default {
+    name: 'App',
+    components: { NewTaskInput },
     data: () => ({
-      drawer: true,
+      drawer: null,
       items: [
         { title: 'Tarefas', icon: 'mdi-view-dashboard', to: '/' },
         { title: 'Sobre', icon: 'mdi-help-box', to: '/about' },
