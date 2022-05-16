@@ -2,7 +2,7 @@
   <div>
     <v-list-item
         :class="{ 'blue lighten-4':task.active }"
-        @click="task.active = !task.active"
+        @click="$store.dispatch('desactivateTask', task)"
     >
         <template v-slot:default="{}">
             <v-list-item-action>
@@ -49,7 +49,3 @@ export default {
     }
 }
 </script>
-
-<style>
-
-</style>
